@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QLThuoc.Models.EF.CayThuoc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="datatable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenCayThuoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnhMinhHoa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongDung)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </th>
+        
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="min-width: 150px;">
+            @Html.DisplayFor(modelItem => item.TenCayThuoc)
+        </td>
+        <td>
+            <div>
+                <img src="~/@Html.DisplayFor(modelItem => item.AnhMinhHoa)" width="200" height="200" />
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongDung)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        
+        <td style="min-width:150px;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

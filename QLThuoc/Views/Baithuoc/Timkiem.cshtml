@@ -1,0 +1,29 @@
+﻿@model IEnumerable<QLThuoc.Models.EF.BaiThuoc>
+
+@{
+    ViewBag.Title = "Timkiem";
+    Layout = "~/Views/Frontend/__Frontend.cshtml";
+}
+
+<h2>Kết quả tìm kiếm</h2>
+
+<div id="featured ds_thuoc">
+    <div class="container">
+        <div class="row">
+            @if(Model == null)
+            {
+                <p>Không tìm thấy kết quả nào.</p>
+            }
+            @foreach (var item in Model)
+            {
+                <div class="4u ">
+                    <h2>@Html.DisplayFor(modelItem => item.TenBaiThuoc)</h2>
+                    <a href="#" class="image full"><img src="~/@Html.DisplayFor(modelItem => item.AnhMinhHoa)" alt="" height="220"></a>
+                   
+                    <p>@Html.ActionLink("Chi tiết", "Details", new { id = item.ID })</p>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿@model QLThuoc.Models.EF.NguoiDung
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Admin/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<table class="table" id="datatable">
+    <tr>
+        <th>
+           @Html.DisplayNameFor(model => model.TenNguoiDung)
+        </th>
+        <th>
+           @Html.DisplayNameFor(model => model.ThongTin)
+        </th>
+        <th></th>
+    </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.TenNguoiDung)
+            </td>
+            <td>
+               @Html.DisplayFor(model => model.ThongTin)
+            </td>
+            
+        </tr>
+    
+
+</table>

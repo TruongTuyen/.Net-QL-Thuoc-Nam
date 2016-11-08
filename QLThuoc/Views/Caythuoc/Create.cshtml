@@ -1,0 +1,101 @@
+﻿@model QLThuoc.Models.EF.CayThuoc
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Admin/_MainLayout.cshtml";
+}
+
+<h2>Thêm mới</h2>
+<p class="btn btn-success pull-right create_new_link">
+    @Html.ActionLink("Danh sách", "Index")
+</p>
+
+<!-- ádfasd-->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Cây thuốc</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+                @if( ViewBag.Caythuoc_add_message != "")
+                {
+                    <p>@ViewBag.Caythuoc_add_message</p>
+                }
+
+                <!-- start project list -->
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal  form-label-left">
+                        
+                        <!--Begin -->
+                        <div class="form-group item">
+                            @Html.LabelFor(model => model.TenCayThuoc, htmlAttributes: new { @class = "control-label col-md-2 col-sm-2 col-xs-12" })
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.EditorFor(model => model.TenCayThuoc, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                @Html.ValidationMessageFor(model => model.TenCayThuoc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group item">
+                            @Html.LabelFor(model => model.AnhMinhHoa, htmlAttributes: new { @class = "control-label col-md-2 col-sm-2 col-xs-12" })
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                 <input type="file" name="AnhMinhHoa" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group item">
+                            @Html.LabelFor(model => model.CongDung, htmlAttributes: new { @class = "control-label col-md-2 col-sm-2 col-xs-12" })
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.TextArea("CongDung", null, new { @class = "form-control col-md-7 col-xs-12" })  
+                                @Html.ValidationMessageFor(model => model.CongDung, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group item">
+                            @Html.LabelFor(model => model.ChiTiet, htmlAttributes: new { @class = "control-label col-md-2 col-sm-2 col-xs-12" })
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.TextArea("ChiTiet", null, new { @class = "form-control col-md-7 col-xs-12" })
+                                @Html.ValidationMessageFor(model => model.ChiTiet, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group item">
+                            @Html.LabelFor(model => model.GhiChu, htmlAttributes: new { @class = "control-label col-md-2 col-sm-2 col-xs-12" })
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                @Html.TextArea("GhiChu", null, new { @class = "form-control col-md-7 col-xs-12" })
+                                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="TrangThai" value="10"/>
+                        
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                                <input type="reset" value="Xóa" class="btn btn-default" />
+                            </div>
+                        </div>
+                        <!--End-->
+
+                    </div>
+                }
+                <!-- end project list -->
+
+            </div>
+        </div>
+    </div>
+
+</div>

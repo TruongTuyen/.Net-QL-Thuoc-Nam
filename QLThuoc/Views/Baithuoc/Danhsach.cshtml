@@ -1,0 +1,26 @@
+﻿@model IEnumerable<QLThuoc.Models.EF.BaiThuoc>
+
+@{
+    ViewBag.Title = "Danhsach";
+    Layout = "~/Views/Frontend/__Frontend.cshtml";
+}
+
+<div id="featured ds_thuoc">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="4u ">
+                    <h2>@Html.DisplayFor(modelItem => item.TenBaiThuoc)</h2>
+                    <a href="#" class="image full"><img src="~/@Html.DisplayFor(modelItem => item.AnhMinhHoa)" alt="" height="220"></a>
+                    <!--<p>@Html.DisplayFor(modelItem => item.CongDung).</p>-->
+                    <p>@Html.Display(item.CongDung.Length > 50 ? item.CongDung.Substring(0, 50) : item.CongDung)</p>
+                    <p>@Html.ActionLink("Chi tiết", "Details", new { id = item.ID })</p>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+

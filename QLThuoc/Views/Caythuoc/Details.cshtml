@@ -1,0 +1,25 @@
+﻿@model QLThuoc.Models.EF.CayThuoc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Frontend/__Frontend.cshtml";
+}
+
+<section>
+    <header>
+        <span class="byline">Cây thuốc</span>
+        <h2>@Html.DisplayFor(model => model.TenCayThuoc)</h2>
+        
+    </header>
+    <p><b>Ảnh minh họa</b></p>
+    <p><img src="~/@Html.DisplayFor(model => model.AnhMinhHoa)" alt="" style="max-width:100%;" /></p>
+    
+    <p><b>Công dụng:</b></p>
+    <p>@Html.DisplayFor(model => model.CongDung)</p>
+
+    <p><b>Chi tiết:</b></p>
+    <p>@Html.DisplayFor(model => model.ChiTiet)</p>
+
+    <p><b>Ghi chú</b></p>
+    <p>@Html.DisplayFor(model => model.GhiChu)</p>
+</section>

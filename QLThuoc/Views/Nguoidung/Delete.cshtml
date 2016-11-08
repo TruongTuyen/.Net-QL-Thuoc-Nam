@@ -1,0 +1,46 @@
+﻿@model QLThuoc.Models.EF.NguoiDung
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Admin/_MainLayout.cshtml";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có chắc chắn muốn xóa?</h3>
+<div>
+    <h4>Người dùng</h4>
+    <hr />
+    <table class="table" id="datatable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNguoiDung)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThongTin)
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ThongTin)
+            </td>
+
+        </tr>
+
+
+    </table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+            @Html.ActionLink("Danh sách", "Index")
+        </div>
+    }
+</div>
